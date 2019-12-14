@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -19,6 +19,10 @@ import HelpIcon from '@material-ui/icons/Help';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import PublishIcon from '@material-ui/icons/Publish';
+import FrequentlyAsked from "../pages/frequently-asked";
+import HowSiteWorks from "../pages/how-site-works";
+import ContactUs from "../pages/contact-us";
+import UploadExcel from "../pages/upload-excel";
 
 const drawerWidth = 240;
 
@@ -82,18 +86,45 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [isFileUploadClicked, setFileUploadClicked] = React.useState(false);
+  const [isHotItWorksClicked, setHowItWorksClicked] = React.useState(false);
+  const [isContactUsClicked, setContactUsClicked] = React.useState(false);
+  const [isFrequentlyAskedClicked, setFrequenlyAskedClicked] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
+
+  const handleFileUploadItem = () => {
+    setContactUsClicked(false);
+    setFrequenlyAskedClicked(false);
+    setContactUsClicked(false);
+    setFileUploadClicked(true);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleHowItWorksItem = () => {
+    setFrequenlyAskedClicked(false);
+    setFileUploadClicked(false);
+    setContactUsClicked(false);
+    setHowItWorksClicked(true);
+  };
+
+  const handleContactUsItem = () => {
+    setHowItWorksClicked(false);
+    setFileUploadClicked(false);
+    setFrequenlyAskedClicked(false);
+    setContactUsClicked(true);
+  }
+
+  const handleFrequentlyAskedItem = () => {
+    setHowItWorksClicked(false);
+    setContactUsClicked(false);
+    setFileUploadClicked(false);
+    setFrequenlyAskedClicked(true);
   };
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <CssBaseline/>
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -108,7 +139,7 @@ export default function PersistentDrawerLeft() {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon/>
           </IconButton>
           <Typography variant="h6" noWrap>
             {`Excel Veri Görselleştiricisi`}
@@ -126,34 +157,34 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
           </IconButton>
         </div>
-        <Divider />
+        <Divider/>
         <List>
-          {['Excel Yükle'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon><PublishIcon /></ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button key={'Excel Yükle'} onClick={handleFileUploadItem}>
+            <ListItemIcon>
+              <PublishIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Excel Yükle'}/>
+          </ListItem>
         </List>
-        <Divider />
+        <Divider/>
         <List>
-            <ListItem button key={`Nasıl Kullanılır?`}>
-              <ListItemIcon><HelpIcon/></ListItemIcon>
-              <ListItemText primary={`Nasıl Kullanılır?`} />
-            </ListItem>
+          <ListItem button key={`Nasıl Kullanılır?`} onClick={handleHowItWorksItem}>
+            <ListItemIcon><HelpIcon/></ListItemIcon>
+            <ListItemText primary={`Nasıl Kullanılır?`}/>
+          </ListItem>
 
-            <ListItem button key={`İletişim`}>
+          <ListItem button key={`İletişim`} onClick={handleContactUsItem}>
             <ListItemIcon><ContactsIcon/></ListItemIcon>
-            <ListItemText primary={`İletişim`} />
-            </ListItem>
+            <ListItemText primary={`İletişim`}/>
+          </ListItem>
 
-            <ListItem button key={`SSS`}>
+          <ListItem button key={`SSS`} onClick={handleFrequentlyAskedItem}>
             <ListItemIcon><BookmarksIcon/></ListItemIcon>
-            <ListItemText primary={`SSS`} />
-            </ListItem>
+            <ListItemText primary={`SSS`}/>
+          </ListItem>
         </List>
       </Drawer>
       <main
@@ -161,19 +192,27 @@ export default function PersistentDrawerLeft() {
           [classes.contentShift]: open,
         })}
       >
-        <div className={classes.drawerHeader} />
+        <div className={classes.drawerHeader}/>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
           facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quis   que non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
+          gravida rutrum quis que non tellus. Convallis convallis tellus id interdum velit laoreet id
+          donec ultrices.
         </Typography>
+        {
+          isFileUploadClicked
+            ? <UploadExcel/>
+            : (
+              isHotItWorksClicked
+                ? <HowSiteWorks/>
+                : (
+                  isContactUsClicked
+                    ? <ContactUs/>
+                    : (isFrequentlyAskedClicked && <FrequentlyAsked/>)
+                )
+            )
+        }
       </main>
     </div>
   );
