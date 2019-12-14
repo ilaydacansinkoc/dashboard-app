@@ -23,7 +23,6 @@ import FrequentlyAsked from "../pages/frequently-asked";
 import HowSiteWorks from "../pages/how-site-works";
 import ContactUs from "../pages/contact-us";
 import UploadExcel from "../pages/upload-excel";
-import {ClickAwayListener} from "@material-ui/core";
 
 const drawerWidth = 240;
 
