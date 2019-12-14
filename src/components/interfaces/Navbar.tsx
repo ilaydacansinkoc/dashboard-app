@@ -23,6 +23,7 @@ import FrequentlyAsked from "../pages/frequently-asked";
 import HowSiteWorks from "../pages/how-site-works";
 import ContactUs from "../pages/contact-us";
 import UploadExcel from "../pages/upload-excel";
+import {ClickAwayListener} from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -93,7 +94,6 @@ export default function PersistentDrawerLeft() {
 
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
-
   const handleFileUploadItem = () => {
     setContactUsClicked(false);
     setFrequenlyAskedClicked(false);
@@ -113,7 +113,7 @@ export default function PersistentDrawerLeft() {
     setFileUploadClicked(false);
     setFrequenlyAskedClicked(false);
     setContactUsClicked(true);
-  }
+  };
 
   const handleFrequentlyAskedItem = () => {
     setHowItWorksClicked(false);
@@ -146,6 +146,7 @@ export default function PersistentDrawerLeft() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -164,7 +165,7 @@ export default function PersistentDrawerLeft() {
         <List>
           <ListItem button key={'Excel Yükle'} onClick={handleFileUploadItem}>
             <ListItemIcon>
-              <PublishIcon />
+              <PublishIcon/>
             </ListItemIcon>
             <ListItemText primary={'Excel Yükle'}/>
           </ListItem>
@@ -187,10 +188,12 @@ export default function PersistentDrawerLeft() {
           </ListItem>
         </List>
       </Drawer>
+
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
+        onClickCapture={handleDrawerClose}
       >
         <div className={classes.drawerHeader}/>
         <Typography paragraph>
