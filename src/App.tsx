@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-
+import Navbar from "./components/Navbar";
 class App extends React.PureComponent {
   render(){
     return (
-      <div> Hello, World!</div>
+      <div><Navbar/></div>
     );
   }
 }
