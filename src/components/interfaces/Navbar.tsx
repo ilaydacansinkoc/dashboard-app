@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import {
   Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem,
-  ListItemIcon, ListItemText, makeStyles, useTheme, Theme, createStyles, Hidden
+  ListItemIcon, ListItemText, makeStyles, Theme, createStyles, Hidden
 } from '@material-ui/core';
 import { Menu, Help, Contacts, Bookmarks, Publish} from '@material-ui/icons';
 import FrequentlyAsked from '../pages/frequently-asked';
@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [isFileUploadClicked, setFileUploadClicked] = React.useState(false);
   const [isHotItWorksClicked, setHowItWorksClicked] = React.useState(false);
