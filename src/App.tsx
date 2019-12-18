@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from "./components/interfaces/Navbar";
+import Navbar from './components/interfaces/Navbar';
 class App extends React.PureComponent {
-  render(){
+  public render() {
     return (
       <div><Navbar/></div>
     );
