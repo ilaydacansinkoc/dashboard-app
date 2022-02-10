@@ -15,7 +15,7 @@
     "contentful": "^7.11.0",
     "immutable": "^4.0.0-rc.12",
     "material-ui-dropzone": "^2.4.7",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
